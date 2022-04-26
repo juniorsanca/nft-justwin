@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>DOODLE JUMP</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    
+    <!--<META HTTP-EQUIV='Content-Security-Policy' CONTENT="default-src 'self';script-src 'self' 'unsafe-inline' *.disqus.com a.disquscdn.com requirejs.org www.google-analytics.com; style-src 'self' 'unsafe-inline' a.disquscdn.com; img-src 'self' *; media-src 'self' ; frame-src disqus.com;">
+    -->
+    <meta http-equiv="Content-Security-Policy" content="default-src * self blob: data: gap:; style-src * self 'unsafe-inline' blob: data: gap:; script-src * 'self' 'unsafe-eval' 'unsafe-inline' blob: data: gap:; object-src * 'self' blob: data: gap:; img-src * self 'unsafe-inline' blob: data: gap:; connect-src self * 'unsafe-inline' blob: data: gap:; frame-src * self blob: data: gap:;">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+
+    body{
+        background-image: url("./images/phone-bg.jpeg");
+    }
+    
+</style>
+</head>
+
+<body class="px-1 py-2.5 text-center mr-0 mb-2">
+      <div class="home">
+    
+    <div>
+        <div class="px-1 py-2.5 text-center mr-0 mb-2">
+        <div>
+            <img alt="Vue logo" src="images/justwin.gif">
+        </div>
+        <div>
+            <img alt="Vue logo" src="images/tv-nft.gif">
+        </div><br>
+
+        <div class="grid grid-cols-2 flex space-x-2">
+              <button
+                  type="button"
+                  class="
+                  font-sans text-center font-bold shadow-lg 
+                  shadow-cyan-500/50 placeholder-white
+                  bg-black bg-opacity-100 rounded-full 
+                  border border-cyan-300 p-2 mb-6
+                  text-white outline-none
+                  "
+                >
+                <router-link to="/play" class="text-white">PLAY</router-link>
+                </button>
+              
+              <button
+                type="button"
+                class="
+                  font-sans text-center font-bold shadow-lg 
+                  shadow-pink-500/50 placeholder-white
+                  bg-black bg-opacity-100 rounded-full 
+                  border border-pink-500 p-2 mb-6
+                  text-white outline-none
+                    "
+              >
+              <router-link to="/ranking" class="text-white">RANKINGS</router-link>
+              </button>
+          </div>
+
+          <div class="grid grid-cols-2 flex space-x-2">
+              <button
+                type="button"
+                class="
+                        font-sans text-center font-bold shadow-lg 
+                        shadow-pink-500/50 placeholder-white
+                        bg-black bg-opacity-100 rounded-full 
+                        border border-pink-500 p-2 mb-6 
+                        text-white outline-none
+                        "
+              >HOW TO PLAY</button>
+
+              <button
+                type="button"
+                @click="logout"
+                class="
+                  font-sans text-center font-bold shadow-lg 
+                  shadow-pink-500/50 placeholder-white
+                  bg-black bg-opacity-100 rounded-full border 
+                  border-pink-500 p-2 mb-6 text-white
+                  outline-none
+                  " 
+              >EXIT</button>          
+
+        </div> 
+    </div>
+  </div>
+  </div>
+
+    <script src='doodle.js'></script>
+    <script src='platform.js'></script>
+    <script src='obstacle.js'></script>
+    <script src='booster.js'></script>
+    <script src='bullet.js'></script>
+    <script src='script.js'></script>
+    <script src="main.js" type="module"></script>
+</body>
+</html>
