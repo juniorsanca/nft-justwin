@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>DOODLE JUMP</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    
+    <!--<META HTTP-EQUIV='Content-Security-Policy' CONTENT="default-src 'self';script-src 'self' 'unsafe-inline' *.disqus.com a.disquscdn.com requirejs.org www.google-analytics.com; style-src 'self' 'unsafe-inline' a.disquscdn.com; img-src 'self' *; media-src 'self' ; frame-src disqus.com;">
+    -->
+    <meta http-equiv="Content-Security-Policy" content="default-src * self blob: data: gap:; style-src * self 'unsafe-inline' blob: data: gap:; script-src * 'self' 'unsafe-eval' 'unsafe-inline' blob: data: gap:; object-src * 'self' blob: data: gap:; img-src * self 'unsafe-inline' blob: data: gap:; connect-src self * 'unsafe-inline' blob: data: gap:; frame-src * self blob: data: gap:;">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+
+    body{
+        background-image: url("./public/images/phone-bg.jpeg");
+    }
+    
+</style>
+</head>
+
+<body class="px-1 py-2.5 text-center mr-0 mb-2">
+    <div>
+       <div>
+        <div>
+            <div class="px-1 py-2.5 text-center mr-0 mb-2">
+                <img alt="Vue logo" src="./public/images/justwin.gif">
+            </div>
+        <div>
+        <input class="
+            font-sans text-center font-bold text-white
+
+            shadow-lg shadow-cyan-500/50
+            bg-black rounded-full
+            border border-cyan-300
+            w-64 p-2 mb-6 placeholder-white
+            outline-none"
+            placeholder="EMAIL" 
+            type="email" 
+            id="email"
+            name="email">
+        </div>
+
+    <div>
+      <input class="
+        font-sans text-center font-bold
+
+        shadow-lg shadow-cyan-500/50
+        placeholder-white
+
+        bg-black bg-opacity-100 rounded-full
+        border border-cyan-300
+        w-64 p-2 mb-6 text-white 
+        outline-none" 
+        placeholder="PASSWORD" 
+        type="password" 
+        id="password"
+        name="password">
+    </div>
+
+  <small class="text-white">
+      <router-link to="/forgot-password" class="text-white"> Forgot password </router-link>
+      </small>
+<br><br>
+    <button
+      type="submit"
+      id="singIn"
+      name="login"
+      value="Login"
+      class=" 
+              font-sans text-white text-base font-bold
+
+              shadow-lg shadow-pink-500/50 bg-dark-200 w-64
+              border border-pink-500
+              hover:bg-gray-900 
+              focus:outline-none 
+              placeholder-white
+
+              rounded-full
+              text-sm px-5 py-2.5 mr-2 mb-2 
+              dark:bg-gray-800 dark:hover:bg-gray-700 
+              dark:focus:ring-gray-700 
+              
+              rounded-full bg-black bg-opacity-100 rounded-full border border-pink-500 w-64
+            p-2 mb-6 text-white outline-none
+"
+    >LOGIN</button><br>
+
+    <br>
+    <div class=" grid grid-cols-3 gap-3 content-evenly ...">
+        <div>
+            <hr class="w-18 h-2 place-content-center">
+        </div>
+        <div>
+            <small class="text-white">Login with</small>
+        </div>
+        <div>
+            <hr class="w-18 place-content-center">
+        </div>
+    </div>
+    <br>
+
+  <div class="flex space-x-3 justify-center">
+      <div>
+          <button id="googleConnect"> 
+            <img class="h-6 w-6" alt="Vue logo" src="./public/images/google.png">
+          </button><br>
+      </div>
+      <div>
+          <button @click="facebookConnect"> 
+            <img class="h-6 w-6" alt="Vue logo" src="./public/images/facebook.png">
+          </button><br>
+      </div>
+      <div>
+          <button @click="twitterConnect"> 
+            <img class="h-8 w-8" alt="Vue logo" src="./public/images/twitter.png">
+          </button><br>
+      </div>
+  </div>
+
+<br>
+  <div>
+
+      <small class="text-white">
+        Don't have an account ? 
+      <a href="/Register" class="text-pink-500">Sign up</router-link>
+      </small>
+  </div><br>
+ 
+
+ </div>
+ </div>
+    </div>
+     <!--
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-app.js";
+        import { getDatabase, set, ref, update } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-database.js"
+        import { 
+            getAuth, 
+            signInWithEmailAndPassword, 
+            GoogleAuthProvider, 
+            signInWithRedirect, 
+            getRedirectResult, 
+            signInWithPopup,
+            onAuthStateChanged
+        } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-auth.js";
+
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyDNY0drJfhyqxBiuONq-AMTjCR1pA0U810",
+        authDomain: "justwin-2e222.firebaseapp.com",
+        projectId: "justwin-2e222",
+        storageBucket: "justwin-2e222.appspot.com",
+        messagingSenderId: "319970877026",
+        appId: "1:319970877026:web:cb144129664f9aec707b3b",
+        measurementId: "G-4QSJ5VJBWF",
+        databaseURL: "https://justwin-2e222-default-rtdb.europe-west1.firebasedatabase.app/"
+
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const database = getDatabase(app)
+      const auth = getAuth();
+      const provider = new GoogleAuthProvider();
+
+
+  singIn.addEventListener('click', (e) => {
+
+    //let username = document.getElementById('username').value
+    let email = document.getElementById('email').value
+    let password = document.getElementById('password').value
+
+    signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+        // Signed in 
+        const user = userCredential.user;
+
+        const dt = new Date();
+        update(ref(database, 'users/' + user.uid), {
+        last_login: dt,
+      })
+
+      alert('User loged in!');
+        // ...
+    })
+    .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+
+        alert(errorMessage)
+    });
+
+  });
+
+    googleConnect.addEventListener('click', (e) => {
+    
+    //signInWithRedirect(auth, provider);
+
+/*
+    getRedirectResult(auth)
+  .then((result) => {
+    // This gives you a Google Access Token. You can use it to access Google APIs.
+    const credential = GoogleAuthProvider.credentialFromResult(result);
+    const token = credential.accessToken;
+
+    // The signed-in user info.
+    const user = result.user;
+  }).catch((error) => {
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // The email of the user's account used.
+    const email = error.email;
+    // The AuthCredential type that was used.
+    const credential = GoogleAuthProvider.credentialFromError(error);
+    // ...
+  });
+  */
+
+    signInWithPopup(auth, provider)
+    .then((result) => {
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+        // The signed-in user info.
+        const user = result.user;
+
+        // user name = displayName
+        // email = email
+        // photo = photoURL
+        // redirect
+        alert(user.displayName);
+        // ...
+    }).catch((error) => {
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // The email of the user's account used.
+        const email = error.email;
+        // The AuthCredential type that was used.
+        const credential = GoogleAuthProvider.credentialFromError(error);
+        // ...
+        alert(errorMessage);
+    });
+})
+
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+      window.location = 'home.html'; 
+      // ...
+      } else {
+        // User is signed out
+        // ...
+      }
+    });
+
+    </script>
+  -->
+  <script src="./public/main.js" type="module"></script>
+</body>
+</html>

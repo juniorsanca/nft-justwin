@@ -14,7 +14,7 @@
 <style>
 
     body{
-        background-image: url("./images/phone-bg.jpeg");
+        background-image: url("./public/images/phone-bg.jpeg");
     }
     
 </style>
@@ -25,13 +25,15 @@
 <div>
 <br>
     <div>
-        <router-link to="/" class="text-white">
-            <img alt="go-back" style="width: 15px; height: 20px; margin-left: 10px;" src="images/w-back.jpeg">
-        </router-link>
+        <button style="float: left;" class="">
+            <a href="/home" class="text-white">
+                <img alt="go-back" style="width: 15px; height: 20px; margin-left: 12px;" src="./public/images/w-back.jpeg">
+            </a>
+        </button>
     </div>
         
     <div>
-        <img alt="Vue logo" src="images/justwin.gif"> 
+        <img alt="Vue logo" src="./public/images/justwin.gif"> 
     </div>
 </div>
 
@@ -45,7 +47,6 @@
                        text-sm text-pink-500 bg-transparent 
                        border-0 border-b-2 border-gray-300 
                        appearance-none 
-                       
                        dark:border-blue-600 
                        dark:focus:border-blue-500 
                        focus:outline-none focus:ring-0 
@@ -133,13 +134,5 @@
 </div>
 </div>
 
-
-    <script src='doodle.js'></script>
-    <script src='platform.js'></script>
-    <script src='obstacle.js'></script>
-    <script src='booster.js'></script>
-    <script src='bullet.js'></script>
-    <script src='script.js'></script>
-    <script src="main.js" type="module"></script>
 </body>
 </html>

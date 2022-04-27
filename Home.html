@@ -14,7 +14,7 @@
 <style>
 
     body{
-        background-image: url("./images/phone-bg.jpeg");
+        background-image: url("./public/images/phone-bg.jpeg");
     }
     
 </style>
@@ -26,10 +26,10 @@
     <div>
         <div class="px-1 py-2.5 text-center mr-0 mb-2">
         <div>
-            <img alt="Vue logo" src="images/justwin.gif">
+            <img alt="Vue logo" src="./public/images/justwin.gif">
         </div>
         <div>
-            <img alt="Vue logo" src="images/tv-nft.gif">
+            <img alt="Vue logo" src="./public/images/tv-nft.gif">
         </div><br>
 
         <div class="grid grid-cols-2 flex space-x-2">
@@ -43,7 +43,7 @@
                   text-white outline-none
                   "
                 >
-                <router-link to="/play" class="text-white">PLAY</router-link>
+                <a href="public/" class="text-white">PLAY</a>
                 </button>
               
               <button
@@ -56,7 +56,7 @@
                   text-white outline-none
                     "
               >
-              <router-link to="/ranking" class="text-white">RANKINGS</router-link>
+              <a href="/Ranking" class="text-white">RANKINGS</a>
               </button>
           </div>
 
@@ -70,11 +70,14 @@
                         border border-pink-500 p-2 mb-6 
                         text-white outline-none
                         "
-              >HOW TO PLAY</button>
+              >
+              <a href="/htplay" class="text-white">  HOW TO PLAY</a>
+            </button>
 
               <button
-                type="button"
-                @click="logout"
+                type="submit"
+                id="logOut"
+                name="logout"
                 class="
                   font-sans text-center font-bold shadow-lg 
                   shadow-pink-500/50 placeholder-white
@@ -89,12 +92,67 @@
   </div>
   </div>
 
-    <script src='doodle.js'></script>
-    <script src='platform.js'></script>
-    <script src='obstacle.js'></script>
-    <script src='booster.js'></script>
-    <script src='bullet.js'></script>
-    <script src='script.js'></script>
-    <script src="main.js" type="module"></script>
+
+      <script type="module">
+      // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-app.js";
+        import { getDatabase, set, ref, update } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-database.js"
+        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-auth.js";
+
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyDNY0drJfhyqxBiuONq-AMTjCR1pA0U810",
+        authDomain: "justwin-2e222.firebaseapp.com",
+        projectId: "justwin-2e222",
+        storageBucket: "justwin-2e222.appspot.com",
+        messagingSenderId: "319970877026",
+        appId: "1:319970877026:web:cb144129664f9aec707b3b",
+        measurementId: "G-4QSJ5VJBWF",
+        databaseURL: "https://justwin-2e222-default-rtdb.europe-west1.firebasedatabase.app/"
+
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const database = getDatabase(app)
+      const auth = getAuth();
+
+
+    const user = auth.currentUser;
+
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/firebase.User
+        const uid = user.uid;
+        // ...
+      } else {
+        // User is signed out
+        // ...
+      }
+    });
+
+
+    logOut.addEventListener('click', (e) => {
+     
+      signOut(auth).then(() => {
+        //faire une fonction pas de possibilité d'accéder au homeage sans se connecter !
+         window.location = 'login.html'; 
+
+          alert('user loged out!');
+
+      }).catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+
+          alert(errorMessage)
+      })
+    })
+
+</script>
 </body>
 </html>
