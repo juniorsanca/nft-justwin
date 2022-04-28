@@ -1,5 +1,4 @@
-    //Login
-      // Import the functions you need from the SDKs you need
+    // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-app.js";
         import { getDatabase, set, ref, update } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-database.js"
         import { 
@@ -35,6 +34,50 @@
       const database = getDatabase(app)
       const auth = getAuth();
       const provider = new GoogleAuthProvider();
+
+
+    //Register
+/*
+  sighUp.addEventListener('click', (e) => {
+
+    let username = document.getElementById('username').value
+    let email = document.getElementById('email').value
+    let password = document.getElementById('password').value
+
+    createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      // Signed in 
+      const user = userCredential.user;
+
+      set (ref(database, 'users/' + user.uid), {
+        username: username,
+        email:email
+      })
+
+      alert('user created');
+      // ...
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // ..
+      alert(errorMessage)
+    });
+
+  });
+
+
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+      window.location = 'home.html'; 
+      // ...
+      } else {
+        // User is signed out
+        // ...
+      }
+    });
+
+    //Login
 
 
   singIn.addEventListener('click', (e) => {
@@ -89,7 +132,7 @@
         // ...
       });
       */
-
+/*
       signInWithPopup(auth, provider)
       .then((result) => {
           // This gives you a Google Access Token. You can use it to access the Google API.
@@ -127,44 +170,4 @@
       }
     });
 
-
-    //Register
-
-  sighUp.addEventListener('click', (e) => {
-
-    let username = document.getElementById('username').value
-    let email = document.getElementById('email').value
-    let password = document.getElementById('password').value
-
-    createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      // Signed in 
-      const user = userCredential.user;
-
-      set (ref(database, 'users/' + user.uid), {
-        username: username,
-        email:email
-      })
-
-      alert('user created');
-      // ...
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      // ..
-      alert(errorMessage)
-    });
-
-  });
-
-
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-      window.location = 'home.html'; 
-      // ...
-      } else {
-        // User is signed out
-        // ...
-      }
-    });
+*/

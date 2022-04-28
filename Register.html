@@ -73,7 +73,7 @@
     </div>
 
     <button
-      type="submit" id="sighUp" name="signup_submit" value="Sign up"
+      type="submit" id="sighUp" name="signup_submit" value="SignUp"
       class=" 
         font-sans text-white text-base font-bold shadow-lg shadow-pink-500/50
         bg-dark-200 w-64 border border-pink-500 hover:bg-gray-900 focus:outline-none
@@ -101,12 +101,12 @@
   <br>
     <div class="flex space-x-3 justify-center">
       <div>
-          <button @click="googleConnect"> 
+          <button id="googleConnect"> 
             <img class="h-6 w-6" alt="Vue logo" src="./public/images/google.png">
           </button><br>
       </div>
       <div>
-          <button @click="facebookConnect"> 
+          <button id="facebookConnect"> 
             <img class="h-6 w-6" alt="Vue logo" src="./public/images/facebook.png">
           </button><br>
       </div>
@@ -125,81 +125,7 @@
     </div>
     <br>
 </div>
-<!--
-<script src="./public/main.js" type="module"> 
 
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-app.js";
-        import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-database.js"
-        import { 
-          getAuth, 
-          createUserWithEmailAndPassword,
-          onAuthStateChanged
-
-         } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-auth.js";
-
-      // TODO: Add SDKs for Firebase products that you want to use
-      // https://firebase.google.com/docs/web/setup#available-libraries
-
-      // Your web app's Firebase configuration
-      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-      const firebaseConfig = {
-        apiKey: "AIzaSyDNY0drJfhyqxBiuONq-AMTjCR1pA0U810",
-        authDomain: "justwin-2e222.firebaseapp.com",
-        projectId: "justwin-2e222",
-        storageBucket: "justwin-2e222.appspot.com",
-        messagingSenderId: "319970877026",
-        appId: "1:319970877026:web:cb144129664f9aec707b3b",
-        measurementId: "G-4QSJ5VJBWF",
-        databaseURL: "https://justwin-2e222-default-rtdb.europe-west1.firebasedatabase.app/"
-
-      };
-
-      // Initialize Firebase
-      const app = initializeApp(firebaseConfig);
-      const database = getDatabase(app)
-      const auth = getAuth();
-
-  sighUp.addEventListener('click', (e) => {
-
-    let username = document.getElementById('username').value
-    let email = document.getElementById('email').value
-    let password = document.getElementById('password').value
-
-    createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      // Signed in 
-      const user = userCredential.user;
-
-      set (ref(database, 'users/' + user.uid), {
-        username: username,
-        email:email
-      })
-
-      alert('user created');
-      // ...
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      // ..
-      alert(errorMessage)
-    });
-
-  });
-
-
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-      window.location = 'home.html'; 
-      // ...
-      } else {
-        // User is signed out
-        // ...
-      }
-    });
-</script>
--->
-  <script src="./public/main.js" type="module"></script>
+<script type="module" src="./public/register.js" > </script>
 </body>
 </html>
