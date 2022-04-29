@@ -38,6 +38,9 @@
       const fbprovider = new FacebookAuthProvider();
 
 
+
+  //Se connecter 
+
   singIn.addEventListener('click', (e) => {
 
     //let username = document.getElementById('username').value
@@ -63,9 +66,17 @@
 
         alert(errorMessage)
     });
-
   });
 
+     onAuthStateChanged(auth, (user) => {
+      if (user) {
+      window.location = 'home.html'; 
+      // ...
+      } else {
+        // User is signed out
+        // ...
+      }
+    });
 
 //-----------------[FACEBOOK LOGIN]----------------//
     facebookConnect.addEventListener('click', (e) =>{
@@ -106,7 +117,7 @@
       const token = credential.accessToken;
 
       // The signed-in user info.
-      const user = result.user; 
+      const user = result.user;
     }).catch((error) => {
       // Handle Errors here.
       const errorCode = error.code;
@@ -116,10 +127,8 @@
       // The AuthCredential type that was used.
       const credential = GoogleAuthProvider.credentialFromError(error);
       // ...
-      alert(errorMessage);
-
-  });
-  
+    });
+    
 
     signInWithPopup(auth, provider)
     .then((result) => {
@@ -148,12 +157,3 @@
     });
 })
 
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-      window.location = 'home.html'; 
-      // ...
-      } else {
-        // User is signed out
-        // ...
-      }
-    });

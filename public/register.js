@@ -4,6 +4,7 @@
         import { 
           getAuth, 
           createUserWithEmailAndPassword,
+          sendEmailVerification,
           onAuthStateChanged,
           GoogleAuthProvider, 
           signInWithRedirect, 
@@ -38,14 +39,20 @@
       const fbprovider = new FacebookAuthProvider();
 
 
+
+  // Signup with email and password
+
   sighUp.addEventListener('click', (e) => {
 
     let username = document.getElementById('username').value
     let email = document.getElementById('email').value
     let password = document.getElementById('password').value
 
+ 
+ 
     createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
+  
       // Signed in 
       const user = userCredential.user;
 
@@ -53,7 +60,12 @@
         username: username,
         email:email
       })
-
+    //Send email verification
+      sendEmailVerification(auth.currentUser)
+      .then(() => {
+        // Email verification sent!
+        // ...
+      }); 
       alert('user created');
       // ...
     })
@@ -63,9 +75,7 @@
       // ..
       alert(errorMessage)
     });
-
-  });
-
+ });
 
     onAuthStateChanged(auth, (user) => {
       if (user) {
