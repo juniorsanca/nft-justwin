@@ -20,11 +20,11 @@
 </style>
 </head>
 
-<body class="px-1 py-2.5 text-center mr-0 mb-2">
+<body>
       <div class="home">
     
     <div>
-        <div class="px-1 py-2.5 text-center mr-0 mb-2">
+        <div>
         <div>
             <img alt="Vue logo" src="./public/images/justwin.gif">
         </div>
@@ -102,31 +102,24 @@
   </div>
   </div>
 
-
-      <script type="module">
+<script type="module">
       // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-app.js";
-        import { getDatabase, set, ref, update } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-database.js"
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-app.js";
+        import { getDatabase, set, ref, update } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-database.js"
         import { 
                 getAuth, 
                 onAuthStateChanged, 
-                signOut } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-auth.js";
-
-      // TODO: Add SDKs for Firebase products that you want to use
-      // https://firebase.google.com/docs/web/setup#available-libraries
-
-      // Your web app's Firebase configuration
-      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-      const firebaseConfig = {
-        apiKey: "AIzaSyDNY0drJfhyqxBiuONq-AMTjCR1pA0U810",
-        authDomain: "justwin-2e222.firebaseapp.com",
-        projectId: "justwin-2e222",
-        storageBucket: "justwin-2e222.appspot.com",
-        messagingSenderId: "319970877026",
-        appId: "1:319970877026:web:cb144129664f9aec707b3b",
-        measurementId: "G-4QSJ5VJBWF",
-        databaseURL: "https://justwin-2e222-default-rtdb.europe-west1.firebasedatabase.app/"
-
+                signOut } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-auth.js";
+        
+        const firebaseConfig = {
+                  apiKey: "AIzaSyDNY0drJfhyqxBiuONq-AMTjCR1pA0U810",
+                  authDomain: "justwin-2e222.firebaseapp.com",
+                  projectId: "justwin-2e222",
+                  storageBucket: "justwin-2e222.appspot.com",
+                  messagingSenderId: "319970877026",
+                  appId: "1:319970877026:web:cb144129664f9aec707b3b",
+                  measurementId: "G-4QSJ5VJBWF",
+                  databaseURL: "https://justwin-2e222-default-rtdb.europe-west1.firebasedatabase.app"
       };
 
       // Initialize Firebase
@@ -134,29 +127,36 @@
       const database = getDatabase(app)
       const auth = getAuth();
 
+      const user = auth.currentUser;
 
-    const user = auth.currentUser;
-
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        // User is signed in, see docs for a list of available properties
-        // https://firebase.google.com/docs/reference/js/firebase.User
-        const uid = user.uid;
-        // ...
-      } else {
-        // User is signed out
-        // ...
-      }
-    });
+      onAuthStateChanged(auth, (user) => { 
+        if (user) {
+          console.log(user)
+          // User is signed in, see docs for a list of available properties
+          // https://firebase.google.com/docs/reference/js/firebase.User
+          const uid = user.uid;
+          console.log(uid)
+            const name = user.displayName;
+          console.log(name)
+            const email = user.email;
+          console.log(email)
+          // ...
+        } else {
+          // User is signed out
+          // ...
+          console.log('USER ARE NOT CONNECTED !')
+        }
+      });
 
 
     //----------------[Get a user's profile]----------------//
 
-    if (user !== null) {
+    if (user) {
       // The user object has basic properties such as display name, email, etc.
       const displayName = user.displayName;
-      //console.log(displayName)
+      console.log(displayName)
       const email = user.email;
+      console.log(email)
       //const photoURL = user.photoURL;
       //const emailVerified = user.emailVerified;
 

@@ -1,81 +1,76 @@
  // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-app.js";
-        import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-database.js"
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-app.js";
+          //import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-analytics.js";
+        import { getDatabase, set, ref, update } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-database.js";
+
         import { 
-          getAuth, 
-          createUserWithEmailAndPassword,
-          sendEmailVerification,
-          onAuthStateChanged,
-          GoogleAuthProvider, 
-          signInWithRedirect, 
-          FacebookAuthProvider,
-          getRedirectResult, 
-          signInWithPopup,
+                getAuth, 
+                createUserWithEmailAndPassword,
+                sendEmailVerification,
+                onAuthStateChanged,
+                GoogleAuthProvider, 
+                signInWithRedirect, 
+                FacebookAuthProvider,
+                getRedirectResult, 
+                signInWithPopup
 
-         } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-auth.js";
+              } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-auth.js";
+        
 
-      // TODO: Add SDKs for Firebase products that you want to use
-      // https://firebase.google.com/docs/web/setup#available-libraries
+              const firebaseConfig = {
+                  apiKey: "AIzaSyDNY0drJfhyqxBiuONq-AMTjCR1pA0U810",
+                  authDomain: "justwin-2e222.firebaseapp.com",
+                  projectId: "justwin-2e222",
+                  storageBucket: "justwin-2e222.appspot.com",
+                  messagingSenderId: "319970877026",
+                  appId: "1:319970877026:web:cb144129664f9aec707b3b",
+                  measurementId: "G-4QSJ5VJBWF",
+                  databaseURL: "https://justwin-2e222-default-rtdb.europe-west1.firebasedatabase.app/"
 
-      // Your web app's Firebase configuration
-      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-      const firebaseConfig = {
-        apiKey: "AIzaSyDNY0drJfhyqxBiuONq-AMTjCR1pA0U810",
-        authDomain: "justwin-2e222.firebaseapp.com",
-        projectId: "justwin-2e222",
-        storageBucket: "justwin-2e222.appspot.com",
-        messagingSenderId: "319970877026",
-        appId: "1:319970877026:web:cb144129664f9aec707b3b",
-        measurementId: "G-4QSJ5VJBWF",
-        databaseURL: "https://justwin-2e222-default-rtdb.europe-west1.firebasedatabase.app/"
-
-      };
+              };
 
       // Initialize Firebase
       const app = initializeApp(firebaseConfig);
-      const database = getDatabase(app)
+      //console.log(database)
+      const database = getDatabase(app) 
+      //const db = getDatabase(app);
       const auth = getAuth();
-      const provider = new GoogleAuthProvider();
-      const fbprovider = new FacebookAuthProvider();
+     // const provider = new GoogleAuthProvider();
+     // const fbprovider = new FacebookAuthProvider();
+
+
+//-------------[ SUBSCRIBE USER WITH EMAIL AND PASSWORD AND NAME ]---------------//
+      sighUp.addEventListener('click', (e) => {
+
+        let email = document.getElementById('email').value;
+        let password = document.getElementById('password').value;
+        let username = document.getElementById('username').value;
+
+
+        createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          // Signed in 
+          const user = userCredential.user;
+
+            //-----------[STORE DATA ON DATABASE]-----------//
+
+            set(ref(database, 'users/' + user.uid), {
+              username: username,
+              email: email
+            })
 
 
 
-  // Signup with email and password
-
-  sighUp.addEventListener('click', (e) => {
-
-    let username = document.getElementById('username').value
-    let email = document.getElementById('email').value
-    let password = document.getElementById('password').value
-
- 
- 
-    createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-  
-      // Signed in 
-      const user = userCredential.user;
-
-      set (ref(database, 'users/' + user.uid), {
-        username: username,
-        email:email
-      })
-    //Send email verification
-      sendEmailVerification(auth.currentUser)
-      .then(() => {
-        // Email verification sent!
-        // ...
-      }); 
-      alert('user created');
-      // ...
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      // ..
-      alert(errorMessage)
+          alert('USER ARE CREATED')
+          //...
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            // ..
+            alert(errorMessage)
+      });
     });
- });
 
     onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -85,11 +80,9 @@
         // User is signed out
         // ...
       }
-    });
+  });
 
-
-    //-----------------[GOOGLE AUTH]-----------------//
-
+//--------------------------------[ GOOGLE AUTH ]---------------------------------//
     googleRegister.addEventListener('click', (e) => {
     
     //signInWithRedirect(auth, provider);
@@ -142,8 +135,7 @@
 })
 
 
-//----------------[FACEBOOK AUTH]------------------//
-
+//---------------------------------[ FACEBOOK AUTH ]-------------------------------//
    facebookRegister.addEventListener('click', (e) =>{
       signInWithPopup(auth, fbprovider)
       .then((result) => {
