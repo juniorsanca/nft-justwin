@@ -44,6 +44,7 @@ class Doodle
         }
     }
 
+    //-------------[ LA VITESSE SELON LE SCORE ]--------------//
     doodleJumpSpeed(score){
         if (score >= 800)
         {

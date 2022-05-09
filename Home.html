@@ -81,7 +81,7 @@
                         text-white outline-none
                         "
               >
-              <a href="/howtoplay" class="text-white">  HOW TO PLAY</a>
+              <a href="/howtoplay" class="text-white"> HOW TO PLAY </a>
             </button>
           
               <button
@@ -144,6 +144,7 @@
         } else {
           // User is signed out
           // ...
+          window.location = 'login.html'; 
           console.log('USER ARE NOT CONNECTED !')
         }
       });
@@ -167,21 +168,23 @@
     }
 
 
-    logOut.addEventListener('click', (e) => {
-     
+    //---------[IF USER IS CONNECTED]---------//
+    
+    logOut.addEventListener('click',(e)=>{
+
       signOut(auth).then(() => {
-        //faire une fonction pas de possibilité d'accéder au homeage sans se connecter !
-         window.location = 'login.html'; 
-
-          alert('user loged out!');
-
+        window.location = 'login.html'; 
+        // Sign-out successful.
+        alert('user loged out');
       }).catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
+        // An error happened.
+        const errorCode = error.code;
+        const errorMessage = error.message;
 
-          alert(errorMessage)
-      })
-    })
+            alert(errorMessage);
+      });
+    });
+
 
 </script>
 </body>
