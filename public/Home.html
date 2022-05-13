@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset='utf-8'>
-    <title>DOODLE JUMP</title>
+    <title>JUSTWIN</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     
     <!--<META HTTP-EQUIV='Content-Security-Policy' CONTENT="default-src 'self';script-src 'self' 'unsafe-inline' *.disqus.com a.disquscdn.com requirejs.org www.google-analytics.com; style-src 'self' 'unsafe-inline' a.disquscdn.com; img-src 'self' *; media-src 'self' ; frame-src disqus.com;">
@@ -12,35 +12,23 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
 <style>
-
-    body{
-        background-image: url("./public/images/phone-bg.jpeg");
+ 
+    body {
+          background-image: url("/public/images/home-bkg.jpeg");
+          background-repeat: no-repeat;
+          background-size: 100%;
     }
     
 </style>
 </head>
 
-<body>
+<body> 
       <div class="home">
     
-    <div>
-        <div>
-        <div>
-            <img alt="Vue logo" src="./public/images/justwin.gif">
-        </div>
-        <!--
-        <div>
-            <img alt="Vue logo" src="./public/images/tv-nft.gif">
-        </div><br>
-
-        -->
-      
-        <div>
-            <video controls autoplay>
-              <source src="./public/video/jw.mp4" type="video/mp4">
-              <source src="./public/video/jw.ogg" type="video/ogg">
-            </video>
-        </div>
+    <div class="allBtns" style="
+              margin-top: 130%;
+              margin-left: 25px;
+              margin-right: 25px;">
 
         <div class="grid grid-cols-2 flex space-x-2">
               <button
@@ -53,8 +41,15 @@
                   text-white outline-none
                   "
                 >
-                <a href="/public/play" class="text-white">PLAY</a>
+                <a href="play.html" class="text-white">PLAY</a>
                 </button>
+
+                <!--
+    <a href="play.html">
+                    <img src="/public/images/home-play.jpeg" alt="Play" style="width:42px;height:42px;border:0">
+                  </a>
+                -->
+               
               
               <button
                 type="button"
@@ -66,8 +61,9 @@
                   text-white outline-none
                     "
               >
-              <a href="/Ranking" class="text-white">RANKINGS</a>
+              <a href="Ranking.html" class="text-white">RANKINGS</a>
               </button>
+
           </div>
 
           <div class="grid grid-cols-2 flex space-x-2">
@@ -81,7 +77,7 @@
                         text-white outline-none
                         "
               >
-              <a href="/howtoplay" class="text-white"> HOW TO PLAY </a>
+              <a href="HowtoPlay.html" class="text-white"> HOW TO PLAY </a>
             </button>
           
               <button
@@ -97,7 +93,6 @@
                   " 
               >EXIT</button>          
 
-        </div> 
     </div>
   </div>
   </div>
