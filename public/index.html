@@ -8,58 +8,46 @@
     <!--<META HTTP-EQUIV='Content-Security-Policy' CONTENT="default-src 'self';script-src 'self' 'unsafe-inline' *.disqus.com a.disquscdn.com requirejs.org www.google-analytics.com; style-src 'self' 'unsafe-inline' a.disquscdn.com; img-src 'self' *; media-src 'self' ; frame-src disqus.com;">
     -->
     <meta http-equiv="Content-Security-Policy" content="default-src * self blob: data: gap:; style-src * self 'unsafe-inline' blob: data: gap:; script-src * 'self' 'unsafe-eval' 'unsafe-inline' blob: data: gap:; object-src * 'self' blob: data: gap:; img-src * self 'unsafe-inline' blob: data: gap:; connect-src self * 'unsafe-inline' blob: data: gap:; frame-src * self blob: data: gap:;">
-
     <script src="https://cdn.tailwindcss.com"></script>
 
 <style>
 
-    body{
-        background-image: url("./images/phone-bg.jpeg");
-    }
-    
+  #wrapper{
+    position:relative;
+}
+
+#btn1{
+  position:absolute;  
+  padding:15px;
+  top: 75%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
 </style>
 </head>
 
 <body>
-      <div class="home">
-    
-    <div>
-        <div>
-            <!--
-
-
-            -->
-    
-        <!--
-        <div>
-            <img alt="Vue logo" src="./public/images/tv-nft.gif">
-        </div><br>
-
-        -->
-      
-        <div>
-            <img alt="Vue logo" src="./images/welcome.jpeg">
-        </div>
-
-        <div class="align-content: center;">
-        <div class="grid grid-cols-1 flex space-x-4">
-              <button
-                  style="margin: 20px"
-                  type="button"
-                  class="
-                  font-sans text-center font-bold shadow-lg 
-                  shadow-cyan-500/50 placeholder-white
-                  bg-black bg-opacity-100 rounded-full 
-                  border border-cyan-300 p-2 mb-6
-                  text-white outline-none
-                  "
-                >
-                <a href="Login.html" class="text-white">WELCOME</a>
+  <div class="home">
+        <div id="wrapper">
+                <button
+                    type="button"
+                    class="
+                    font-sans text-center font-bold shadow-lg 
+                    shadow-cyan-500/50 placeholder-white
+                    bg-black bg-opacity-100 rounded-full 
+                    border border-cyan-300 p-2 mb-6
+                    text-white outline-none
+                    "
+                    id="btn1"
+                    >
+                    <a href="Login.html" class="text-white">WELCOME</a>
                 </button>
-            </div>        
-</div>
-    </div>
-  </div>
+
+            <img id="img" alt="Vue logo" src="./images/welcome(o).jpeg">
+        </div>
   </div>
 </body>
 </html>

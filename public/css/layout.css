@@ -21,8 +21,6 @@
     
 }
 
-
-
 #pausePlay
 {
     position:absolute;
@@ -100,7 +98,7 @@
 
 #mobileinstruction{
     position:absolute;
-    top:50%;
+    top:80%;
     left:10%;
     font-family:'Doodle';
     font-size:15px;
@@ -164,12 +162,20 @@
    
 }
 #startpage{
-    width:500px;
-    height:100%;
 }   
 
 #pause-container{
     width:500px;
     height:100%;
 }
+}
+
+#imgBtn1 {
+  transform: translate(60%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+#imgBtn {
+  transform: translate(60%, -50%);
+  -ms-transform: translate(-50%, -50%);
 }
