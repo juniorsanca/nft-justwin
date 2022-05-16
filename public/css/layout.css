@@ -53,6 +53,14 @@
     display:none;
 }
 
+#starthomepage{
+    position:relative;
+    width:100%;
+    height:100%;
+
+    display:none;
+}
+
 #startpage img{
     
     display:block;
@@ -60,8 +68,7 @@
 
 #startplay{
     position:absolute;
-    top:70%;
-    left:9%;
+    top:60%;
 }
 
 #pause-container img{
@@ -79,9 +86,13 @@
     display:none;
 
 }
+#starthomeagain{
+    position:absolute;
+    display:none;
+
+}
 
 #playagain img{
-    
     width:100%;
 }
 
@@ -91,15 +102,12 @@
 
 #resume{
     position:absolute;
-    width:30%;
     top:70%;
-    left:40%;
 }
 
 #mobileinstruction{
     position:absolute;
-    top:80%;
-    left:10%;
+    top:70%;
     font-family:'Doodle';
     font-size:15px;
     display:none;
@@ -161,8 +169,7 @@
     height:100%;
    
 }
-#startpage{
-}   
+#startpage{}   
 
 #pause-container{
     width:500px;
