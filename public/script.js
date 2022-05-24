@@ -918,9 +918,8 @@ class GAME
         cancelAnimationFrame(this.animator);
         this.enemySiren.pause();
         this.enemySiren.currentTime=0;
+
         if(this.score>localStorage.getItem('Doodle')){
-            
-            
             localStorage.removeItem('Doodle');
             localStorage.setItem('Doodle',`${this.score}`);
            
@@ -945,6 +944,7 @@ class GAME
         this.context.font="30px Doodle";
         this.context.fillStyle='blue';
         this.context.textAlign='center';
+        //HIGH SCORE
         this.context.fillText('High Score: '+localStorage.getItem('Doodle'),CANVAS_WIDTH/2,370);
         this.context.restore();
         this.playAgain.onclick=()=>
@@ -1490,4 +1490,3 @@ loadAssets(() => {
     new GAME(element);
 
 });
-
